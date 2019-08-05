@@ -15,9 +15,10 @@ func init() {
 	beego.Router("/leacots.html", &controllers.PageController{},"*:Leacots")
 	beego.Router("/whisper.html", &controllers.PageController{},"*:Whisper")
 
+	beego.Router("/login", &controllers.PageController{},"*:Login")
+	beego.Router("/login.html", &controllers.PageController{},"*:Login")
 
-
-
+	beego.Router("/from_submit", &controllers.LoginPage{},"*:LoginPageSubmit")
 
 
 }

@@ -10,6 +10,11 @@ func (c *PageController) Index()  {
 	c.TplName = "index.html"
 }
 
+func (c *PageController) Login()  {
+	c.TplName = "login.html"
+}
+
+
 func (c *PageController) About()  {
 	c.TplName = "about.html"
 }
