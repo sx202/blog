@@ -1,18 +1,25 @@
 package controllers
 
-import "github.com/astaxie/beego"
+import (
+	"github.com/astaxie/beego"
+	"strings"
+)
 
 type LoginPage struct {
 	beego.Controller
 }
 
-type user struct {
-	username string `form:"username"`
-	password string `form:"password"`
-}
 
 func (c *LoginPage) LoginPageSubmit()  {
-	u :=user{}
-	c.ParseForm(&u)
-	c.TplName = "index.html"
+
+
+	UserName := strings.TrimSpace(c.GetString("username"))
+	//PassWord := strings.TrimSpace(c.GetString("password"))
+	if UserName == "sunxin" {
+		c.TplName = "index.html"
+		c.Data["USERNAME"] = UserName
+	}else {
+		c.TplName = "about.html"
+	}
+
 }
