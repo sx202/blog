@@ -5,6 +5,8 @@ import (
 	_ "github.com/sx202/blog/routers"
 )
 
+
+
 func main() {
 
 	beego.Run()
