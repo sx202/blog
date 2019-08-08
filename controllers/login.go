@@ -49,4 +49,8 @@ func (c *LoginPage) LoginPageSubmit()  {
 		}
 
 	}
+	err = rows.Err()
+	if err != nil {
+		log.Fatal(err)
+	}
 }
