@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>输入试题</title>
+</head>
+<body>
+<form action="/Enter_Question_Submit" method="post">
+    <label>题目：</label><br>
+    <textarea autofocus cols="150" rows="20" name="question">{{.question}}</textarea><br>
+    <label>选项：</label><br><br>
+    A: <input type="text" name="option_a" value="{{.option_a}}" style="width: 80%;height: 30px;font-size: medium"><br><br>
+    B: <input type="text" name="option_b" value="{{.option_b}}" style="width: 80%;height: 30px;font-size: medium"><br><br>
+    C: <input type="text" name="option_c" value="{{.option_c}}" style="width: 80%;height: 30px;font-size: medium"><br><br>
+    D: <input type="text" name="option_d" value="{{.option_d}}" style="width: 80%;height: 30px;font-size: medium"><br><br>
+    E: <input type="text" name="option_e" value="{{.option_e}}" style="width: 80%;height: 30px;font-size: medium"><br><br>
+    F: <input type="text" name="option_f" value="{{.option_f}}" style="width: 80%;height: 30px;font-size: medium"><br><br>
+    G: <input type="text" name="option_g" value="{{.option_g}}" style="width: 80%;height: 30px;font-size: medium"><br><br>
+    <label>正确答案</label><br>
+    <input type="text" name="answer_a" value="{{.answer_a}}" style="width: 5%; height: 30px;font-size: medium">
+    <input type="text" name="answer_b" value="{{.answer_b}}" style="width: 5%; height: 30px;font-size: medium">
+    <input type="text" name="answer_c" value="{{.answer_c}}" style="width: 5%; height: 30px;font-size: medium">
+    <input type="text" name="answer_d" value="{{.answer_d}}" style="width: 5%; height: 30px;font-size: medium">
+    <input type="text" name="answer_e" value="{{.answer_e}}" style="width: 5%; height: 30px;font-size: medium">
+    <input type="text" name="answer_f" value="{{.answer_f}}" style="width: 5%; height: 30px;font-size: medium">
+    <input type="text" name="answer_g" value="{{.answer_g}}" style="width: 5%; height: 30px;font-size: medium">
+    <input type="submit" value="提交" style="width: 8%;height: 50px;font-size: medium" >
+</form>
+<p>{{.Enter_Question_Error}}</p>
+</body>
+</html>

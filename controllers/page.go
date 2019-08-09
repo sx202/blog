@@ -34,3 +34,7 @@ func (c *PageController) Leacots()  {
 func (c *PageController) Whisper()  {
 	c.TplName = "whisper.html"
 }
+
+func (c *PageController) Enter_Question()  {
+	c.TplName = "Enter_Question.html"
+}
