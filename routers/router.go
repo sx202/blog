@@ -21,8 +21,11 @@ func init() {
 
 
 	beego.Router("/Enter_Question", &controllers.PageController{},"*:Enter_Question")
+	beego.Router("/Enter_Question.html", &controllers.PageController{},"*:Enter_Question")
+
 	beego.Router("/Enter_Question_Submit", &controllers.Enter_Question{},"*:Enter_Question_Page")
 
-
+	beego.Router("/View_Question_All", &controllers.PageController{},"*:View_Question_All")
+	beego.Router("/View_Question_All.html", &controllers.PageController{},"*:View_Question_All")
 
 }

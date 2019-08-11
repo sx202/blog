@@ -38,3 +38,7 @@ func (c *PageController) Whisper()  {
 func (c *PageController) Enter_Question()  {
 	c.TplName = "Enter_Question.html"
 }
+
+func (c *PageController) View_Question_All()  {
+	c.TplName = "View_Question_All.html"
+}

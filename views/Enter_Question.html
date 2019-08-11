@@ -7,7 +7,7 @@
 <body>
 <form action="/Enter_Question_Submit" method="post">
     <label>题目：</label><br>
-    <textarea autofocus cols="150" rows="20" name="question">{{.question}}</textarea><br>
+    <textarea autofocus cols="150" rows="20" name="question" style="line-height: 18px;font-size: 18px">{{.question}}</textarea><br>
     <label>选项：</label><br><br>
     A: <input type="text" name="option_a" value="{{.option_a}}" style="width: 80%;height: 30px;font-size: medium"><br><br>
     B: <input type="text" name="option_b" value="{{.option_b}}" style="width: 80%;height: 30px;font-size: medium"><br><br>

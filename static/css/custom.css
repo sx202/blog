@@ -1,0 +1,31 @@
+body{
+    background-color: #eaeaea;
+}
+
+div{
+    margin: 1% 2%;
+}
+
+
+pre {
+    /*达到在各种浏览器中能够自动换行*/
+    white-space: pre-wrap; /* css3.0 */
+    white-space: -moz-pre-wrap; /* Firefox */
+    white-space: -pre-wrap; /* Opera 4-6 */
+    white-space: -o-pre-wrap; /* Opera 7 */
+    word-wrap: break-word; /* Internet Explorer 5.5+ */
+
+    /*宽度*/
+    width: 80%;
+
+    /*背景颜色*/
+    color: #000000;
+
+
+    /*字体大小*/
+    font-size: 16px;
+}
+
+.question_css{
+
+}
