@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试接口</title>
+    <script type="text/javascript" src="../static/js/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+
+  $.ajax({
+      
+      url:"http://127.0.0.1:8080/users",
+      
+      method:"get",
+
+      async: true,
+
+      contentType:"application/json;charset=utf-8",
+      
+      dataType: "jsonp",
+
+      jsonp:"jsoncallback",
+      
+      success:function (data) {
+
+          // var resultJson = eval(data);
+          var resultJson = $.parseJSON(data);
+          var list = resultJson.data;
+          var username = list.username;
+          var password = list.password;
+          console.log(username,password)
+      },
+      error: function (error) {
+        console.log(error)
+      }
+  });
+
+</script>
+
+<p id="txt"></p>
+
+
+
+
+<input type="submit" value="显示">
+
+</body>
+</html>
