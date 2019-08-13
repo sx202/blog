@@ -7,43 +7,77 @@
 </head>
 <body>
 <script type="text/javascript">
-
+var my_url="http://blog_api.sunxinall.com";
   $.ajax({
-      
-      url:"http://127.0.0.1:8080/users",
-      
+
+      url:my_url+"/user",
+
       method:"get",
 
       async: true,
 
       contentType:"application/json;charset=utf-8",
-      
-      dataType: "jsonp",
 
-      jsonp:"jsoncallback",
-      
+
       success:function (data) {
 
           // var resultJson = eval(data);
-          var resultJson = $.parseJSON(data);
-          var list = resultJson.data;
-          var username = list.username;
-          var password = list.password;
-          console.log(username,password)
+
+          console.log(data)
       },
       error: function (error) {
         console.log(error)
       }
   });
 
+// var xmlhttp;
+// function loadXMLDoc(url)
+// {
+//     xmlhttp=null;
+//     if (window.XMLHttpRequest)
+//     {// code for Firefox, Mozilla, IE7, etc.
+//         xmlhttp=new XMLHttpRequest();
+//     }
+//     else if (window.ActiveXObject)
+//     {// code for IE6, IE5
+//         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+//     }
+//     if (xmlhttp!=null)
+//     {
+//
+//         xmlhttp.onreadystatechange=state_Change;
+//
+//         xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8")
+//         xmlhttp.open("GET",url,true);
+//         xmlhttp.send();
+//     }
+//     else
+//     {
+//         alert("Your browser does not support XMLHTTP.");
+//     }
+// }
+//
+// function state_Change()
+// {
+//     if (xmlhttp.readyState === 4)
+//     {// 4 = "loaded"
+//         alert(xmlhttp.status)
+//         console.log(xmlhttp)
+//         if (xmlhttp.status === 200)
+//         {// 200 = "OK"
+//             document.getElementById('txt').innerHTML=xmlhttp.getResponseHeader();
+//         }
+//         else
+//         {
+//             alert("Problem retrieving data:" + xmlhttp.statusText);
+//         }
+//     }
+// }
 </script>
 
 <p id="txt"></p>
 
-
-
-
-<input type="submit" value="显示">
+<input type="submit" value="显示" onclick="">
 
 </body>
 </html>
