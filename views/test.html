@@ -7,77 +7,83 @@
 </head>
 <body>
 <script type="text/javascript">
-var my_url="http://blog_api.sunxinall.com";
-  $.ajax({
-
-      url:my_url+"/user",
-
-      method:"get",
-
-      async: true,
-
-      contentType:"application/json;charset=utf-8",
-
-
-      success:function (data) {
-
-          // var resultJson = eval(data);
-
-          console.log(data)
-      },
-      error: function (error) {
-        console.log(error)
-      }
-  });
-
-// var xmlhttp;
-// function loadXMLDoc(url)
-// {
-//     xmlhttp=null;
-//     if (window.XMLHttpRequest)
-//     {// code for Firefox, Mozilla, IE7, etc.
-//         xmlhttp=new XMLHttpRequest();
-//     }
-//     else if (window.ActiveXObject)
-//     {// code for IE6, IE5
-//         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-//     }
-//     if (xmlhttp!=null)
-//     {
+// var my_url="http://192.168.6.95";
+//   $.ajax({
 //
-//         xmlhttp.onreadystatechange=state_Change;
+//       url:my_url+"/user",
 //
-//         xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8")
-//         xmlhttp.open("GET",url,true);
-//         xmlhttp.send();
-//     }
-//     else
-//     {
-//         alert("Your browser does not support XMLHTTP.");
-//     }
-// }
+//       method:"get",
 //
-// function state_Change()
-// {
-//     if (xmlhttp.readyState === 4)
-//     {// 4 = "loaded"
-//         alert(xmlhttp.status)
-//         console.log(xmlhttp)
-//         if (xmlhttp.status === 200)
-//         {// 200 = "OK"
-//             document.getElementById('txt').innerHTML=xmlhttp.getResponseHeader();
-//         }
-//         else
-//         {
-//             alert("Problem retrieving data:" + xmlhttp.statusText);
-//         }
-//     }
-// }
+//       async: true,
+//
+//       contentType:"application/json;charset=utf-8",
+//
+//
+//       success:function (data) {
+//
+//           // var resultJson = eval(data);
+//
+//           console.log(data)
+//       },
+//       error: function (error) {
+//         console.log(error)
+//       }
+//   });
+
+var xmlhttp;
+function loadXMLDoc(url)
+{
+    xmlhttp=null;
+    if (window.XMLHttpRequest)
+    {// code for Firefox, Mozilla, IE7, etc.
+        xmlhttp=new XMLHttpRequest();
+    }
+    else if (window.ActiveXObject)
+    {// code for IE6, IE5
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    if (xmlhttp!=null)
+    {
+
+        xmlhttp.onreadystatechange=state_Change;
+
+        // xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8")
+        xmlhttp.open("GET",url,true);
+        xmlhttp.send(null);
+    }
+    else
+    {
+        alert("Your browser does not support XMLHTTP.");
+    }
+}
+
+function state_Change()
+{
+    if (xmlhttp.readyState === 4)
+    {// 4 = "loaded"
+        if (xmlhttp.status === 200)
+        {// 200 = "OK"
+            // var txt = document.getElementById('txt');
+            var jsontxt = xmlhttp.responseText;
+            var object =eval("("+jsontxt+")");
+            var id = object.user_11111.Username;
+
+            // document.getElementById('txt').innerHTML=xmlhttp.getResponseHeader();
+            document.getElementById('txt').innerHTML=id;
+            // txt.innerText =  console.log(jsontxt);
+
+        }
+        else
+        {
+            alert("Problem retrieving data:" + xmlhttp.statusText);
+        }
+    }
+}
 </script>
 
 <p id="txt"></p>
 
-<input type="submit" value="显示" onclick="">
+<input type="submit" value="显示" onclick="loadXMLDoc('http://blog_api.sunxinall.com/user')">
 
 </body>
 </html>
