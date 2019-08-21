@@ -4,31 +4,12 @@
     <meta charset="UTF-8">
     <title>查看所有题</title>
     <link rel="stylesheet" type="text/css" href="../static/css/custom.css">
+    <script type="text/javascript" src="../static/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="../static/js/viewquestionall.js"></script>
 </head>
 <body>
-<div>
-    <h2>063题库</h2>
-</div>
-
-
-<div class="question_css">
-    <h4>第1题</h4>
-    <pre>You are administrator a multi-container database(CDB) CDB1 with two pluggable database (PDBs), PDB1 and PDB2. You execute the following command on CBD$ROOT as the SYS user:
-        SQL>create user c##scott identified by scottorc11;
-        SQL>grant create session to c##scott;
-        Which statement is true about the c##scott user?</pre>
-
-</div>
-
-<div class="option_css">
-    <h4>选项</h4>
-    <p>xxx</p>
-</div>
-
-<div class="answer_css">
-    <h4>答案</h4>
-    <p>a</p>
-</div>
-
+<script type="text/javascript">
+    loadXMLDoc('http://127.0.0.1:8080/viewquestionall')
+</script>
 </body>
 </html>
