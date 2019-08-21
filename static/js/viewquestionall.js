@@ -1,49 +1,74 @@
-var xmlhttp;
-function loadXMLDoc(url)
-{
-    xmlhttp=null;
-    if (window.XMLHttpRequest)
-    {// code for Firefox, Mozilla, IE7, etc.
-        xmlhttp=new XMLHttpRequest();
-    }
-    else if (window.ActiveXObject)
-    {// code for IE6, IE5
-        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    if (xmlhttp!=null)
-    {
+// var xmlhttp;
+// function loadXMLDoc()
+// {
+//     xmlhttp=null;
+//
+//     let url = 'http://blog_api.sunxinall.com/viewquestionall'
+//
+//     if (window.XMLHttpRequest)
+//     {// code for Firefox, Mozilla, IE7, etc.
+//         xmlhttp=new XMLHttpRequest();
+//     }
+//     else if (window.ActiveXObject)
+//     {// code for IE6, IE5
+//         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+//     }
+//     if (xmlhttp!=null)
+//     {
+//
+//         xmlhttp.onreadystatechange=state_Change;
+//
+//         // xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8")
+//         xmlhttp.open("GET",url,true);
+//         xmlhttp.send(null);
+//     }
+//     else
+//     {
+//         alert("Your browser does not support XMLHTTP.");
+//     }
+// }
+//
+// function state_Change()
+// {
+//     if (xmlhttp.readyState === 4)
+//     {// 4 = "loaded"
+//         if (xmlhttp.status === 200)
+//         {// 200 = "OK"
+//             // var txt = document.getElementById('txt');
+//             let jsontxt = xmlhttp.responseText;
+//             let object =eval("("+jsontxt+")");
+//             let id = object.user_11111.Username;
+//
+//             // document.getElementById('txt').innerHTML=xmlhttp.getResponseHeader();
+//             document.getElementById('txt').innerHTML=id;
+//             // txt.innerText =  console.log(jsontxt);
+//
+//         }
+//         else
+//         {
+//             alert("Problem retrieving data:" + xmlhttp.statusText);
+//         }
+//     }
+// }
 
-        xmlhttp.onreadystatechange=state_Change;
+function createDiv(id,question,optionA,optionB,optionC,optionD,optionE,optionF,optionG,answer1,answer2,answer3,answer4,answer5,answer6,answer7) {
 
-        // xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8")
-        xmlhttp.open("GET",url,true);
-        xmlhttp.send(null);
-    }
-    else
-    {
-        alert("Your browser does not support XMLHTTP.");
-    }
-}
+    document.write('<div id=\"div\">');
 
-function state_Change()
-{
-    if (xmlhttp.readyState === 4)
-    {// 4 = "loaded"
-        if (xmlhttp.status === 200)
-        {// 200 = "OK"
-            // var txt = document.getElementById('txt');
-            var jsontxt = xmlhttp.responseText;
-            var object =eval("("+jsontxt+")");
-            var id = object.user_11111.Username;
+    document.write('<a id=\"a\"></a>');
+    document.getElementById('a').innerHTML='第'+id+'题';
 
-            // document.getElementById('txt').innerHTML=xmlhttp.getResponseHeader();
-            document.getElementById('txt').innerHTML=id;
-            // txt.innerText =  console.log(jsontxt);
+    document.write('<br>')
 
-        }
-        else
-        {
-            alert("Problem retrieving data:" + xmlhttp.statusText);
-        }
-    }
+    document.write('<textarea id=\"textarea\"></textarea>');
+    document.getElementById('textarea').innerHTML=question;
+
+    document.write('<p id="optionA"><input id="checkA" type="checkbox"></p>');
+    document.getElementById('optionA').innerHTML='A:'+optionA;
+
+
+
+
+    document.write('</div>');
+
 }
