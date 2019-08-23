@@ -41,12 +41,25 @@ function state_Change()
             console.log(object);
 
             for (let len in object){
-                createDiv(len,object[len].Question,object[len].Option_A,object[len].Option_B,object[len].Option_C,object[len].Option_D,object[len].Option_E,object[len].Option_F,object[len].Option_G);
+                createDiv(
+                    parseFloat(len)+1,
+                    object[len].Question,
+                    object[len].Option_A,
+                    object[len].Option_B,
+                    object[len].Option_C,
+                    object[len].Option_D,
+                    object[len].Option_E,
+                    object[len].Option_F,
+                    object[len].Option_G,
+                    object[len].Correct_Answer_1,
+                    object[len].Correct_Answer_2,
+                    object[len].Correct_Answer_3,
+                    object[len].Correct_Answer_4,
+                    object[len].Correct_Answer_5,
+                    object[len].Correct_Answer_6,
+                    object[len].Correct_Answer_7
+                );
             }
-
-            // for (let len=0;len<10;len++){
-            //     createDiv(len,object[len].Question,object[len].Option_A,object[len].Option_B,object[len].Option_C,object[len].Option_D,object[len].Option_E,object[len].Option_F,object[len].Option_G);
-            // }
 
         }
         else
@@ -58,59 +71,72 @@ function state_Change()
 
 function createDiv(id,question,optionA,optionB,optionC,optionD,optionE,optionF,optionG,answer1,answer2,answer3,answer4,answer5,answer6,answer7) {
 
+    let option = [
+        optionA,
+        optionB,
+        optionC,
+        optionD,
+        optionE,
+        optionF,
+        optionG
+    ];
+
+    let answer = [
+        answer1,
+        answer2,
+        answer3,
+        answer4,
+        answer5,
+        answer6,
+        answer7
+    ];
+
+    let num = [
+        "A: ",
+        "B: ",
+        "C: ",
+        "D: ",
+        "E: ",
+        "F: ",
+        "G: ",
+    ];
+
+    let answerNums = 0;
+    for (let ai=0;ai<answer.length;ai++){
+        if (answer[ai] === "NULL"){
+            answerNums=answerNums+1;
+        }
+    }
+
     document.write('<div id="div">');
 
-    let title = "<a >"+"第"+id+"题"+"</a>";
+    let title = "<p >"+"第"+id+"题"+"</p>";
     document.write(title);
 
-    document.write('<br>');
 
-    let textarea = "<textarea>"+question+"</textarea>";
+    // let textarea = "<textarea  id='a' style='height: auto;width: 80%'>"+question+"</textarea>";
+    let textarea = "<pre>"+question+"</pre>";
     document.write(textarea);
 
-    document.write('<br>');
+
+    // document.write('<br>');
 
     document.write('<form id="option_form">');
 
-    if (optionA !== 'NULL' && optionA !== '')
-    {
-        let option_a = "<p><input type=\"checkbox\">A: "+optionA+"</p>";
-        document.write(option_a);
-    }
+    let option_title = "<p>选项</p>";
+    document.write(option_title);
 
-    if (optionB !== 'NULL' && optionB !== '')
-    {
-        let option_b = "<p><input type=\"checkbox\">B: "+optionB+"</p>";
-        document.write(option_b);
-    }
+    for (let i=0;i<option.length;i++){
+        if (option[i] !== 'NULL' && option[i] !== '')
+        {
+            if (answerNums >5){
+                let option_a = "<p><input type=\"radio\">" + num[i] + option[i] + "</p>";
+            }else {
+                let option_a = "<p><input type=\"checkbox\">" + num[i] + option[i] + "</p>";
+            }
 
-    if (optionC !== 'NULL' && optionC !== '')
-    {
-        let option_c = "<p><input type=\"checkbox\">C: "+optionC+"</p>";
-        document.write(option_c);
-    }
-
-    if (optionD !== 'NULL' && optionD !== '')
-    {
-        let option_d = "<p><input type=\"checkbox\">D: "+optionD+"</p>";
-        document.write(option_d);
-    }
-
-    if (optionE !== 'NULL' && optionE !== '')
-    {
-        let option_e = "<p><input type=\"checkbox\">E: "+optionE+"</p>";
-        document.write(option_e);
-    }
-
-    if (optionF !== 'NULL' && optionF !== '')
-    {
-        let option_f = "<p><input type=\"checkbox\">F: "+optionF+"</p>";
-        document.write(option_f);
-    }
-
-    if (optionG !== 'NULL' && optionG !== '') {
-        let option_g = "<p><input type=\"checkbox\">G: "+optionG+"</p>";
-        document.write(option_g);
+            document.write(option_a);
+        }
     }
 
     document.write('</form>');
