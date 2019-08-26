@@ -130,12 +130,12 @@ function createDiv(id,question,optionA,optionB,optionC,optionD,optionE,optionF,o
         if (option[i] !== 'NULL' && option[i] !== '')
         {
             if (answerNums >5){
-                let option_a = "<p><input type=\"radio\">" + num[i] + option[i] + "</p>";
+                let option_a = "<p><input type=\"radio\" name='option'/>" + num[i] + option[i] + "</p>";
+                document.write(option_a);
             }else {
-                let option_a = "<p><input type=\"checkbox\">" + num[i] + option[i] + "</p>";
+                let option_a = "<p><input type=\"checkbox\" />" + num[i] + option[i] + "</p>";
+                document.write(option_a);
             }
-
-            document.write(option_a);
         }
     }
 
