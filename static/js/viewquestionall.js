@@ -101,21 +101,25 @@ function createDiv(id,question,optionA,optionB,optionC,optionD,optionE,optionF,o
         "G: ",
     ];
 
-    //计算出答案中是NULL值的个数
-    let answerNums = 0;
+    //计算出答案的个数
+    let answer_Nums = 0;
     for (let ai=0;ai<answer.length;ai++){
-        if (answer[ai] === "NULL"){
-            answerNums=answerNums+1;
+        if (answer[ai] !== "NULL"){
+            answer_Nums=answer_Nums+1;
         }
     }
 
-    //
-    let optionNums = 0;
+    //获取选项的数量
+
+    let option_Nums_Arrays = [];
     for (let oi = 0;oi < option.length;oi++){
-        if (option[oi] !== "NULL"){
-            optionNums=optionNums + 1;
+        //判断选项内容是否为“NULL”或者空,
+        if (option[oi] !== "NULL" && option[oi] !== ""){
+            option_Nums_Arrays.push(oi);
         }
     }
+
+    // console.log(option_Nums_Arrays);
 
     document.write('<div id="div">');
 
@@ -135,18 +139,20 @@ function createDiv(id,question,optionA,optionB,optionC,optionD,optionE,optionF,o
     let option_title = "<p>选项</p>";
     document.write(option_title);
 
-    for (let i=0;i<option.length;i++){
-        if (option[i] !== 'NULL' && option[i] !== '')
-        {
-            //大于5代表就有一个答案
-            if (answerNums >5){
-                let option_a = "<p><input type=\"radio\" name='option'/>" + num[i] + option[i] + "</p>";
+    // 通过随机顺序,显示选项
+    let option_Array_Length = option_Nums_Arrays.length;
+    for (let i=0;i<option_Array_Length;i++){
+
+        let random_Nums = parseInt(Math.random()*(option_Nums_Arrays.length));
+            //小于2代表就有一个答案
+            if ( answer_Nums < 2 ){
+                let option_a = "<p><input type=\"radio\" name='option'/>" + num[i] + option[option_Nums_Arrays[random_Nums]] + "</p>";
                 document.write(option_a);
             }else {
-                let option_a = "<p><input type=\"checkbox\" />" + num[i] + option[i] + "</p>";
+                let option_a = "<p><input type=\"checkbox\" />" + num[i] + option[option_Nums_Arrays[random_Nums]] + "</p>";
                 document.write(option_a);
             }
-        }
+        option_Nums_Arrays.splice(random_Nums,1);
     }
 
     document.write('</form>');
