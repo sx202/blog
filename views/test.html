@@ -4,100 +4,13 @@
     <meta charset="UTF-8">
     <title>测试接口</title>
     <script type="text/javascript" src="../static/js/jquery-3.4.1.min.js"></script>
-    <script type="text/javascript" src="../static/js/test.js"></script>
+    <script type="text/javascript" src="../static/js/singlequestion.js"></script>
 </head>
 <body>
 <script type="text/javascript">
-// var my_url="http://192.168.6.95";
-//   $.ajax({
-//
-//       url:my_url+"/user",
-//
-//       method:"get",
-//
-//       async: true,
-//
-//       contentType:"application/json;charset=utf-8",
-//
-//
-//       success:function (data) {
-//
-//           // var resultJson = eval(data);
-//
-//           console.log(data)
-//       },
-//       error: function (error) {
-//         console.log(error)
-//       }
-//   });
-
-// var xmlhttp;
-// function loadXMLDoc(url)
-// {
-//     xmlhttp=null;
-//     if (window.XMLHttpRequest)
-//     {// code for Firefox, Mozilla, IE7, etc.
-//         xmlhttp=new XMLHttpRequest();
-//     }
-//     else if (window.ActiveXObject)
-//     {// code for IE6, IE5
-//         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-//     }
-//     if (xmlhttp!=null)
-//     {
-//
-//         xmlhttp.onreadystatechange=state_Change;
-//
-//         // xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8")
-//         xmlhttp.open("GET",url,true);
-//         xmlhttp.send(null);
-//     }
-//     else
-//     {
-//         alert("Your browser does not support XMLHTTP.");
-//     }
-// }
-//
-// function state_Change()
-// {
-//     if (xmlhttp.readyState === 4)
-//     {// 4 = "loaded"
-//         if (xmlhttp.status === 200)
-//         {// 200 = "OK"
-//             // var txt = document.getElementById('txt');
-//             var jsontxt = xmlhttp.responseText;
-//             var object =eval("("+jsontxt+")");
-//             var id = object.user_11111.Username;
-//
-//             // document.getElementById('txt').innerHTML=xmlhttp.getResponseHeader();
-//             document.getElementById('txt').innerHTML=id;
-//             // txt.innerText =  console.log(jsontxt);
-//
-//         }
-//         else
-//         {
-//             alert("Problem retrieving data:" + xmlhttp.statusText);
-//         }
-//     }
-// }
- //   function array() {
- //       var array=["a","b","c","d"];
- //       console.log(array[Math.round((Math.random()*10)*array.length)])  ;
- //   }
-a()
+singlequestion()
 </script>
 
-<p id="txt"></p>
 
-<!--<input type="submit" value="显示" onclick="loadXMLDoc('http://blog_api.sunxinall.com/user')">-->
-
-<div style="border-style: solid;border-width: 1px;border-color: #eb7350">
-<p>hello div</p>
-</div>
-
-
-<div>
-
-</div>
 </body>
 </html>
